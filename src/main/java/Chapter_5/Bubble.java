@@ -15,8 +15,6 @@ public class Bubble
         int quantityMeaningsMass;
         int numsMenu;
 
-
-
         System.out.println("\nВыберите варриант заполнения массива:\n");
         System.out.println("1. Ввести количество элементов массива и заполнить их рандомно.");
         System.out.println("2. Задать значения элементов массива через пробел.");
@@ -38,7 +36,41 @@ public class Bubble
                 {
                     case 1:
                     {
+                        int[] nums = new int[quantityMeaningsMass];
 
+                        System.out.print("\nВедите значение начала диапазона: ");
+                        int low, high;
+                        low = scanner.nextInt();
+                        System.out.print("\nВведите конец диапазона: ");
+                        high = scanner.nextInt();
+
+                        System.out.print("\nИсходный массив: ");
+                        for (int i = 0; i < nums.length; i++)
+                        {
+                            nums[i] = (int) ((Math.random() * (high - low)) + low);
+                            System.out.print(nums[i] + " ");
+                        }
+
+                        int t;
+                        for (int i = 1; i < nums.length; i++)
+                        {
+                            for (int b = nums.length - 1; b >= i; b--)
+                            {
+                                if (nums[b-1] > nums[b])
+                                {
+                                    t = nums[b-1];
+                                    nums[b-1] = nums[b];
+                                    nums[b] = t;
+                                }
+                            }
+                        }
+
+                        System.out.print("\nОтсортированный массив: ");
+                        for (int a: nums)
+                        {
+                            System.out.print(a + " ");
+                        }
+                        break;
                     }
 
                     case 2:
@@ -72,6 +104,7 @@ public class Bubble
                         {
                             System.out.print(a + " ");
                         }
+                        break;
                     }
                 }
 
